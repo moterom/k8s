@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: api-nlp
-        image: 862980326144.dkr.ecr.us-east-1.amazonaws.com/api_nlp:dev-8
+        image: gcr.io/kutai-dev/chat-nodejs
         resources:
           requests:
             memory: "128Mi"
