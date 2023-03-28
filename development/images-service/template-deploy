@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-images-service
+spec:
+  selector:
+    matchLabels:
+      app: images-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: images-service
+    spec:
+      containers:
+      - name: images-service
+        image: 862980326144.dkr.ecr.us-east-1.amazonaws.com/images-service:dev-IMAGE_TAG
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "125m"
+        ports:
+        - containerPort: 5005

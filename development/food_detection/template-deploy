@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-food-detection
+spec:
+  selector:
+    matchLabels:
+      app: food-detection
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: food-detection
+    spec:
+      containers:
+      - name: food-detection
+        image: 862980326144.dkr.ecr.us-east-1.amazonaws.com/dev_food_detection:dev-IMAGE_TAG
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "250m"
+

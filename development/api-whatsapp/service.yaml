@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-api-whatsapp
+spec:
+  selector:
+    app: api-whatsapp
+  ports:
+    - port: 5012
+      protocol: TCP

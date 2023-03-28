@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-images-service
+spec:
+  selector:
+    app: images-service
+  ports:
+    - port: 5005
+      protocol: TCP

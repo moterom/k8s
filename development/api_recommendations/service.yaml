@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-api-recommendations
+spec:
+  selector:
+    app: api-recommendations
+  ports:
+    - port: 4000
+      protocol: TCP

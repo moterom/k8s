@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-api-questions
+spec:
+  selector:
+    matchLabels:
+      app: api-questions
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: api-questions
+    spec:
+      containers:
+      - name: api-questions
+        image: 862980326144.dkr.ecr.us-east-1.amazonaws.com/api_questions:dev-66
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "125m"
+        ports:
+        - containerPort: 5007

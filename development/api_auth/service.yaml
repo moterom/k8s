@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-api-auth
+spec:
+  selector:
+    app: api-auth
+  ports:
+    - port: 5008
+      protocol: TCP

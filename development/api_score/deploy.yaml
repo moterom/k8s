@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-api-score
+spec:
+  selector:
+    matchLabels:
+      app: api-score
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: api-score
+    spec:
+      containers:
+      - name: api-score
+        image: 862980326144.dkr.ecr.us-east-1.amazonaws.com/api_score:dev-117
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "125m"
+        ports:
+        - containerPort: 3000

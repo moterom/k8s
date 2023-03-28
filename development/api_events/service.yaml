@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-api-events
+spec:
+  selector:
+    app: api-events
+  ports:
+    - port: 5015
+      protocol: TCP

@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-api-users
+spec:
+  selector:
+    app: api-users
+  ports:
+    - port: 5002
+      protocol: TCP

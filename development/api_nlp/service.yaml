@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-api-nlp
+spec:
+  selector:
+    app: api-nlp
+  ports:
+    - port: 5339
+      protocol: TCP

@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-api-admin
+spec:
+  selector:
+    app: api-admin
+  ports:
+    - port: 5009
+      protocol: TCP

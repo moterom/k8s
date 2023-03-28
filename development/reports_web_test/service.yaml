@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-reports-web
+spec:
+  selector:
+    app: reports-web
+  ports:
+    - port: 3000
+      protocol: TCP

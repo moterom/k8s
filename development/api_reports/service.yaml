@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-api-reports
+spec:
+  selector:
+    app: api-reports
+  ports:
+    - port: 5010
+      protocol: TCP

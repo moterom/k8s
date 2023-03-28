@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-api-habits
+spec:
+  selector:
+    matchLabels:
+      app: api-habits
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: api-habits
+    spec:
+      containers:
+      - name: api-habits
+        image: 862980326144.dkr.ecr.us-east-1.amazonaws.com/api_habits:dev-18
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "125m"
+        ports:
+        - containerPort: 5006
