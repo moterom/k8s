@@ -1,23 +1,43 @@
-apiVersion: apps/v1
-kind: Deployment
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
 metadata:
-  name: deploy-api-nlp
+  name: "chatjs"
+  namespace: "default"
+  labels:
+    app: "chatjs"
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: api-nlp
-#  replicas: 1
+      app: "chatjs"
   template:
     metadata:
       labels:
-        app: api-nlp
+        app: "chatjs"
     spec:
       containers:
-      - name: api-nlp
-        image: gcr.io/kutai-dev/chat-nodejs
-        resources:
-          requests:
-            memory: "128Mi"
-            cpu: "250m"
-        ports:
-        - containerPort: 5339
+      - name: "github-moterom-chat-nodejs-1"
+        image: "us-central1-docker.pkg.dev/kutai-dev/chat-nodejs/github_moterom_chat-nodejs:963dd80"
+---
+apiVersion: "autoscaling/v2"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: "chatjs-hpa-bdof"
+  namespace: "default"
+  labels:
+    app: "chatjs"
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: "chatjs"
+    apiVersion: "apps/v1"
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: "Resource"
+    resource:
+      name: "cpu"
+      target:
+        type: "Utilization"
+        averageUtilization: 80
