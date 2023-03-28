@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-api-nlp
+spec:
+  selector:
+    matchLabels:
+      app: api-nlp
+#  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: api-nlp
+    spec:
+      containers:
+      - name: api-nlp
+        image: gcr.io/kutai-dev/chat-nodejs
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 5339
