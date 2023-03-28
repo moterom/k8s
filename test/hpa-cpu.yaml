@@ -1,12 +1,12 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: api-nlp-autoscaler
+  name: chatjs
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: deploy-api-nlp
+    name: chatjs
   minReplicas: 1
   maxReplicas: 2
   metrics:
